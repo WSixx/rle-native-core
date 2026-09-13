@@ -8,7 +8,7 @@ javaVersion = "21"
 compileSdk = "37"
 minSdk = "28"
 targetSdk = "37"
-ndk = "29.0.14206865"
+ndk = "30.0.16248370"
 
 # AndroidX & Core
 coreKtx = "1.19.0"
@@ -16,7 +16,7 @@ lifecycleRuntimeKtx = "2.11.0"
 
 # Compose
 activityCompose = "1.13.0"
-composeBom = "2026.08.00"
+composeBom = "2026.09.00"
 
 # Testing
 junit = "4.13.2"

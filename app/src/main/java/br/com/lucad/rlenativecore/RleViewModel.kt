@@ -1,6 +1,7 @@
 package br.com.lucad.rlenativecore
 
 import androidx.lifecycle.ViewModel
+import br.com.lucad.rlecore.RleNative
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -11,7 +12,7 @@ data class RleUiState(
     val outputText: String = "",
 )
 
-class RleViewModel : ViewModel() {
+class RleViewModel(private val nativeLib: RleNative = RleNative()) : ViewModel() {
 
     private val _uiState = MutableStateFlow(RleUiState())
     val uiState: StateFlow<RleUiState> = _uiState.asStateFlow()
@@ -21,7 +22,12 @@ class RleViewModel : ViewModel() {
     }
 
     fun compress() {
-        // TODO:
+        _uiState.update {
+            it.copy(
+                outputText = nativeLib.compressRle(uiState.value.inputText.toByteArray())
+                    .contentToString()
+            )
+        }
     }
 
     fun decompress() {

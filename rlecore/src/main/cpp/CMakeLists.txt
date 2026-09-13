@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.22.1)
+cmake_minimum_required(VERSION 4.4.3)
 
 # Activate pure C compiler (disables C++ runtime overhead)
 project("rlecore" C)
